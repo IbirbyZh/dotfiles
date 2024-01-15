@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+output="${1:?}"
+shift
+
+gs -dNOPAUSE -dQUIET -dBATCH \
+    -sDEVICE=pdfwrite \
+    "-sOutputFile=$output" \
+    "$@" 

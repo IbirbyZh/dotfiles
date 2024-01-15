@@ -108,6 +108,15 @@ bindkey "\e\eOD" beginning-of-line
 bindkey "\e\eOC" end-of-line
 
 # Configurate history
-export HISTFILE=~/.zsh_history
+export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000
 export SAVEHIST=10000
+
+for module in $(ls "$HOME/.zmodules"); do
+  path+="$HOME/.zmodules/$module"
+done
+
+
+if [ -e "/usr/local/go" ]; then
+  path+="/usr/local/go/bin"
+fi

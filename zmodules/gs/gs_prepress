@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+input="${1:?}"
+shift
+
+output="${1:?}"
+shift
+
+gs -dNOPAUSE -dQUIET -dBATCH \
+    -sDEVICE=pdfwrite \
+    -dPDFSETTINGS=/prepress \
+    "$@" \
+    "-sOutputFile=$output" "$input"

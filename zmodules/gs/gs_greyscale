@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+input="${1:?}"
+shift
+
+output="${1:?}"
+shift
+
+gs -dNOPAUSE -dQUIET -dBATCH \
+    -sDEVICE=pdfwrite \
+    -sProcessColorModel=DeviceGray \
+    -sColorConversionStrategy=Gray \
+    -dOverrideICC \
+    "$@" \
+    "-sOutputFile=$output" "$input"
